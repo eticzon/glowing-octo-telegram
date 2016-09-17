@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message {
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+      .textbox {
+        margin-bottom: 0;
+      }
+      .comment {
+        font-style: italic;
+        font-weight: 600;
+      }
+      .code {
+        margin-top: 0;
+        font-style: normal;
+        font-family: monospace;
+        background-color: #eee;
+      }
+      .caps {
+        font-size: 1.2em;
+        font-style: normal;
+        text-transform: uppercase;
+      }
+    </style>
+    <title>Lunch Checker</title>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+         <div class="form-group textbox">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="items">
+         </div>
+         <div class="form-group comment">
+           *An empty item such as <span class="code">', ,'</span> (one or more spaces) or <span class="code">',,'</span> is <span class="caps">NOT</span> considered in the count.
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="tooMuch();">Check If Too Much</button>
+         </div>
+         <div class="form-group message">
+           {{message}}
+         </div>
+   </div>
+</body>
+</html>
